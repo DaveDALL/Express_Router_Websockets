@@ -1,23 +1,24 @@
 const socket = io()
 console.log(socket)
 
-socket.on('disconnet', (reason) => {
-    if (reason === ("io server disconnect" || "io client disconnet")) {
-        socket.on('products', (data) => {
-            console.log(data)
-            //render(data)
-        })
-    }
+socket.on('products', (data) => {
+    console.log(data)
+    render(data)
 })
 
-socket.on('products', (data) => {
-    socket.emit('msg', 'renderizado de productos')
+socket.on('productspost', (data) => {
+    console.log(data)
+    render(data)
+})
+
+socket.on('productsdel', (data) => {
     console.log(data)
     render(data)
 })
 
 render = (data) => {
-    const html = data.map( (ele, i) => {
+    document.getElementById('msgbox').innerHTML = " "
+    let html = data.map( (ele, i) => {
         return (`
             <ul class="productlist">
                 <div>
