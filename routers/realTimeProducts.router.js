@@ -8,8 +8,9 @@ function realTimeProducts (io) {
 
     router.get('/realtimeproducts', async (req, res) => {
         let products = await productsDb.getProducts()
-        io.on('connect', async () => {
-            await io.emit('products', products)
+        io.on('connection', (socket) => {
+            console.log(socket.id)
+            io.emit('products', products)
         })
         res.render('realTimeProducts', {})
     })
@@ -19,14 +20,13 @@ function realTimeProducts (io) {
         await productsDb.addProduct(productToAdd)
         console.log("Producto agregado con éxito")
         let products = await productsDb.getProducts()
-        io.on('connect', async () => {
-            await io.emit('products', products)
+        io.on('connection', (socket) => {
+            console.log(socket.id)
+            io.emit('products', products)
         })
-        res.render('realTimeProducts', {}, () => {
-            res.send({
-                status: "Success",
-                message: "Producto creado con exito"
-            })
+        res.send({
+            status: "Success",
+            message: "Producto creado con exito"
         })
     })
 
@@ -35,14 +35,13 @@ function realTimeProducts (io) {
         await productsDb.deleteProductById(productToDeleteId)
         console.log("Producto eliminado con éxito")
         let products = await productsDb.getProducts()
-        io.on('connect', async () => {
-            await io.emit('products', products)
+        io.on('connection', (socket) => {
+            console.log(socket.id)
+            io.emit('products', products)
         })
-        res.render('realTimeProducts', {}, () => {
-            res.send({
-                status: "Success",
-                message: "Producto eliminado con exito"
-            })
+        res.send({
+            status: "Success",
+            message: "Producto eliminado con exito"
         })
     })
 
