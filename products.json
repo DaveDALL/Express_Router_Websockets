@@ -143,5 +143,18 @@
     "stock": 5,
     "status": true,
     "category": "category2"
+  },
+  {
+    "id": "lituiuln0.bf55cfef6a584",
+    "code": "abc945",
+    "title": "producto prueba12",
+    "description": "Este es un producto prueba12",
+    "thumbnails": [
+      "Link a imagen12"
+    ],
+    "price": 567,
+    "stock": 13,
+    "status": true,
+    "category": "category3"
   }
 ]

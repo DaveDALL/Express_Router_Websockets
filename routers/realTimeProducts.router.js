@@ -24,9 +24,11 @@ function realTimeProducts (io) {
             console.log(socket.id)
             io.emit('products', products)
         })
-        res.send({
-            status: "Success",
-            message: "Producto creado con exito"
+        res.render('realTimeProducts', {}, () => {
+            res.send({
+                status: "Success",
+                message: "Producto creado con exito"
+            })
         })
     })
 
@@ -39,9 +41,11 @@ function realTimeProducts (io) {
             console.log(socket.id)
             io.emit('products', products)
         })
-        res.send({
-            status: "Success",
-            message: "Producto eliminado con exito"
+        res.render('realTimeProducts', {}, () => {
+            res.send({
+                status: "Success",
+                message: "Producto creado con exito"
+            })
         })
     })
 
