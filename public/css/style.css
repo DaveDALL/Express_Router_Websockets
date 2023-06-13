@@ -1,0 +1,10 @@
+h1 {
+    font-family: 'Righteous', cursive;
+}
+.container {
+    display:grid;
+    justify-content: center;
+}
+.productlist {
+    list-style: none;
+}
