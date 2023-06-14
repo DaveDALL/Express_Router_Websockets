@@ -1,7 +1,5 @@
 const express = require('express')
 const app = express()
-const ProductManager = require('./productManager')
-let productsDb = new ProductManager('./products.json')
 const http = require('http')
 const server = http.createServer(app)
 
